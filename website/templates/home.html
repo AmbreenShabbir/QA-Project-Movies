@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Favourite Movies</h1>
+<ul class="list-group list-group-flush" id="movies">
+  {% for movie in user.movies %}
+  <li class="list-group-item">
+    {{ movie.data }}
+    <button type="button" class="close" onClick="deleteMovie({{ movie.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="movie" id="movie" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Movie</button>
+  </div>
+</form>
+{% endblock %}
