@@ -2,19 +2,9 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Clone') {
             steps {
-                echo 'Building..' 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-               echo 'Deploying..' 
+                sh "git clonehttps://github.com/AmbreenShabbir/QA-Project-Movies.git" 
             }
         }
     }
